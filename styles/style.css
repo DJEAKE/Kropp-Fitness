@@ -1,25 +1,25 @@
-@font-face{
-    font-family: 'Heebo';
-    src: url('./fonts/Heebo-Light.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+@font-face {
+  font-family: 'Heebo';
+  src: url('./fonts/Heebo-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
-@font-face{
-    font-family: 'Heebo';
-    src: url('./fonts/Heebo-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+@font-face {
+  font-family: 'Heebo';
+  src: url('./fonts/Heebo-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-@font-face{
-    font-family: 'Yantramanav';
-    src: url('./fonts/Yantramanav-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+@font-face {
+  font-family: 'Yantramanav';
+  src: url('./fonts/Yantramanav-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /**
@@ -52,8 +52,7 @@ body,
   Убираем внешние отступы вертикали нужным тегам,
   у которых есть атрибут class
  */
-:where(
-  h1,
+:where(h1,
   h2,
   h3,
   h4,
@@ -62,8 +61,7 @@ body,
   p,
   ul,
   ol,
-  dl
-):where([class]) {
+  dl):where([class]) {
   margin-block: 0;
 }
 
@@ -180,10 +178,8 @@ label {
   (за исключением тех, у которых уже указан
   атрибут fill со значением 'none' или начинается с 'url')
  */
-:where([fill]:not(
-  [fill="none"],
-  [fill^="url"]
-)) {
+:where([fill]:not([fill="none"],
+    [fill^="url"])) {
   fill: currentColor;
 }
 
@@ -192,10 +188,8 @@ label {
   (за исключением тех, у которых уже указан
   атрибут stroke со значением 'none')
  */
-:where([stroke]:not(
-  [stroke="none"],
-  [stroke^="url"]
-)) {
+:where([stroke]:not([stroke="none"],
+    [stroke^="url"])) {
   stroke: currentColor;
 }
 
@@ -219,6 +213,7 @@ svg * {
   которые предпочитают их не использовать
  */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   ::before,
   ::after {
@@ -229,7 +224,7 @@ svg * {
   }
 }
 
-:root{
+:root {
   --color-dark: #000000;
   --color-light: #ffffff;
   --color-dark-gray: #404040;
@@ -249,7 +244,7 @@ svg * {
   --transition-duration: 0.2s;
 }
 
-body{
+body {
   font-family: var(--font-family-base);
   color: var(--color-light-gray);
   font-weight: 300;
@@ -258,13 +253,108 @@ body{
   background-color: var(--color-dark);
 }
 
-.container{
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: var(--color-light);
+}
+
+a:hover {
+  color: var(--color-light-gray);
+}
+
+.container {
   max-width: calc(var(--container-width) + var(--container-paddding-x) * 2);
   margin-inline: auto;
   padding-inline: var(--container-paddding-x);
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.button{
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding-inline: 26px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 2;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background-color: var(--color-light);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: default;
+}
+
+.button:hover{
+  background-color: var(--color-light-gray);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.header-logo{
+  flex-shrink: 0;;
+}
+
+.header-menu-list {
+  display: flex;
+  column-gap: 50px;
+}
+
+.header-menu-link {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 7px;
+  height: 90px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+}
+
+.header-menu-link.is-current::after{
+ content: "";
+ width: 5px;
+ height: 5px;
+ background-color: currentColor;
+ border-radius: 50%;
+}
+
+.header-actions{
+  display: flex;
+  column-gap: 40px;
+
+}
+
+.header-burger-button{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: var(--border);
+  border-radius: var(--border-radius);
 }
