@@ -272,6 +272,14 @@ a:hover {
   color: var(--color-light-gray);
 }
 
+p{
+  margin-block: 0;
+}
+
+p:not([class]):not(:last-child){
+  margin-bottom: 24px;
+}
+
 .container {
   max-width: calc(var(--container-width) + var(--container-paddding-x) * 2);
   margin-inline: auto;
@@ -299,6 +307,40 @@ h5,
 h6 {
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.title-medium {
+  font-size: 40px;
+  line-height: 1.3;
+  color: var(--color-light);
+}
+
+.backdrop-title {
+  position: relative;
+  z-index: 2;
+}
+
+.backdrop-title::before {
+  content: '';
+  display: block;
+  position: absolute;
+  right: calc(100% + 8px);
+  width: 26px;
+  aspect-ratio: 1;
+  background: url('/icons/plus.svg') center/contain no-repeat;
+}
+
+.backdrop-title::after {
+  content: attr(data-title);
+  position: absolute;
+  z-index: -1;
+  top: -0.45em;
+  left: -0.6em;
+  font-family: var(--font-family-accent);
+  font-size: 2.8em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-light-gray);
+  text-stroke: 1px var(--color-light-gray);
 }
 
 .button {
@@ -408,6 +450,9 @@ h6 {
   text-transform: uppercase;
 }
 
+.motivation-card-description{
+  max-width: 400px;
+}
 .banner-info {
   display: flex;
   align-items: end;
@@ -464,6 +509,29 @@ h6 {
   border-color: var(--color-light-gray);
 }
 
+.motivation-item:nth-child(even) {
+  background-color: var(--color-dark-alternate);
+}
+
+.motivation-item:nth-child(even) .motivation-card {
+  flex-direction: row-reverse;
+}
+
+.motivation-card {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  column-gap: clamp(30px, 10.42vh, 200px);
+}
+
+.motivation-card-image {
+  margin-block: -60px;
+}
+
+.motivation-card-body {
+  padding-left: 35px;
+}
+
 @media (max-width: 1024px) {
   .button {
     padding-inline: 18px;
@@ -489,7 +557,7 @@ h6 {
     height: 50px;
   }
 
-  .banner{
+  .banner {
     row-gap: 10px;
   }
 
