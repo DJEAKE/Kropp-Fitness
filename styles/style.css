@@ -751,7 +751,7 @@ input {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.location-map-image{
+.location-map-image {
   height: auto;
 }
 
@@ -764,22 +764,18 @@ input {
   text-align: center;
 }
 
-.location-title:not(:last-child){
+.location-title:not(:last-child) {
   margin-bottom: 14px;
 }
 
-.location-description{
+.location-description {
   max-width: 490px;
 }
 
-.location-description:not(:last-child){
+.location-description:not(:last-child) {
   margin-bottom: 37px;
 }
 
-.location{
-  display: flex;
-  flex-direction: column-reverse;
-}
 
 @media(max-width: 1919px) {
   .motivation-card-image {
@@ -838,6 +834,11 @@ input {
 
   .join-us-title:not(:last-child) {
     margin-bottom: 80px;
+  }
+
+  .location {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
@@ -915,11 +916,11 @@ input {
     row-gap: 20px;
   }
 
-  .location-body{
+  .location-body {
     padding-block: 40px;
   }
 
-  .location-description:not(:last-child){
+  .location-description:not(:last-child) {
     margin-bottom: 20px;
   }
 
